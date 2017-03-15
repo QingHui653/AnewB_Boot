@@ -1,7 +1,12 @@
-package com.example.entity;
+package com.example.controller.test.entity;
 
 import java.io.Serializable;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
+import lombok.Data;
+
+@Data
 public class User implements Serializable,Comparable<User> {
 	private static final long serialVersionUID = 1L;
 	
@@ -9,9 +14,8 @@ public class User implements Serializable,Comparable<User> {
 
     private String username;
     
+    @JSONField(serialize=false)
     private String password;
-    
-    
 
     public User() {
 		super();

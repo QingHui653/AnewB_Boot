@@ -1,11 +1,11 @@
-package com.example.dao;
+package com.example.controller.test.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import com.example.entity.User;
+import com.example.controller.test.entity.User;
 
 @Mapper
 public interface UserDao{

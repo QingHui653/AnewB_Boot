@@ -1,11 +1,11 @@
-package com.example.service;
+package com.example.controller.test.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.dao.UserDao;
-import com.example.entity.User;
+import com.example.controller.test.dao.UserDao;
+import com.example.controller.test.entity.User;
 
 @Service
 public class UserService{

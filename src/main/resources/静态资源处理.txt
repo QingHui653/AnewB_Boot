@@ -1,0 +1,15 @@
+Spring Boot 默认为我们提供了静态资源处理，使用 WebMvcAutoConfiguration 中的配置各种属性。
+
+建议大家使用Spring Boot的默认配置方式，如果需要特殊处理的再通过配置进行修改。
+
+如果想要自己完全控制WebMVC，就需要在@Configuration注解的配置类上增加@EnableWebMvc（@SpringBootApplication 注解的程序入口类已经包含@Configuration），增加该注解以后WebMvcAutoConfiguration中配置就不会生效，你需要自己来配置需要的每一项。这种情况下的配置还是要多看一下WebMvcAutoConfiguration类。
+
+我们既然是快速使用Spring Boot，并不想过多的自己再重新配置。本文还是主要针对Spring Boot的默认处理方式，部分配置在application 配置文件中（.properties 或 .yml）
+
+
+#默认资源映射
+#其中默认配置的 /** 映射到 /static （或/public、/resources、/META-INF/resources） 
+#其中默认配置的 /webjars/** 映射到 classpath:/META-INF/resources/webjars/ 
+#PS：上面的 static、public、resources 等目录都在 classpath: 下面（如 src/main/resources/static）。
+#如果我按如下结构存放相同名称的图片，那么Spring Boot 读取图片的优先级是怎样的呢？
+#META/resources > resources > static > public
