@@ -46,6 +46,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+		<!-- Web  servlet -->
+		<dependency>
+    		<groupId>javax.servlet</groupId>
+    		<artifactId>javax.servlet-api</artifactId>
+    		<version>4.0.0-b01</version>
+    		<scope>provided</scope>
+		</dependency>
+		<dependency>
+           <groupId>javax.servlet</groupId>
+           <artifactId>jstl</artifactId>
+       	</dependency>
+       	<!-- tomcat 的支持.-->
+        <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-tomcat</artifactId>
+           <scope>provided</scope>
+        </dependency>
+        <dependency>
+           <groupId>org.apache.tomcat.embed</groupId>
+           <artifactId>tomcat-embed-jasper</artifactId>
+           <scope>provided</scope>
+        </dependency>
 		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -57,14 +79,12 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
 		<!-- 连接池 druid -->
 		<dependency>
 		    <groupId>com.alibaba</groupId>
 		    <artifactId>druid</artifactId>
 		    <version>1.0.26</version>
 		</dependency>
-		
 		<!-- json -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -92,12 +112,6 @@
 		    <version>5.0.0-RC1</version>
 		</dependency>
 		
-		<dependency>
-    		<groupId>javax.servlet</groupId>
-    		<artifactId>javax.servlet-api</artifactId>
-    		<version>4.0.0-b01</version>
-    		<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 	<build>

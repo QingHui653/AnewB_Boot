@@ -1,8 +1,15 @@
 package com.example.config.mvc;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.example.component.handlerInterceptor.MyInterceptor1;
+import com.example.component.handlerInterceptor.MyInterceptor2;
 
 /**
  * 
@@ -23,6 +30,16 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter {
 //        可以直接使用addResourceLocations 指定磁盘绝对路径，同样可以配置多个位置，注意路径写法需要加上file:
 //        registry.addResourceHandler("/api_files/**").addResourceLocations("file:D:/data/api_files");
         super.addResourceHandlers(registry);
+    }
+    
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 多个拦截器组成一个拦截器链
+        // addPathPatterns 用于添加拦截规则
+        // excludePathPatterns 用户排除拦截
+        registry.addInterceptor(new MyInterceptor1()).addPathPatterns("/**");
+        registry.addInterceptor(new MyInterceptor2()).addPathPatterns("/**");
+        super.addInterceptors(registry);
     }
  
 }
