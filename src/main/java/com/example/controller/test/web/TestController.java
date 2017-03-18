@@ -56,6 +56,11 @@ public class TestController {
 		return u;
 	}
 	
+	/**
+	 * 测试从配置文件读取参数
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping("/helloJsp")
     public String helloJsp(Map<String,Object> map){
         System.out.println("HelloController.helloJsp().hello="+hello);
