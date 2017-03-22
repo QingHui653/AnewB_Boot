@@ -7,10 +7,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.newb.mybatis.db.entity.User;
+import com.newb.mybatis.db.service.common.MyMapper;
 
 @Mapper
-public interface UserDao{
-
+public interface UserMapper extends MyMapper<User> {
 	@Select("select * from user where oid=#{id}")
     User testSelectByKey(int id);
 
@@ -22,5 +22,4 @@ public interface UserDao{
 	
 	@Insert("insert into user value (#{oid},#{username},#{password})")
 	Boolean save(User u);
-
 }

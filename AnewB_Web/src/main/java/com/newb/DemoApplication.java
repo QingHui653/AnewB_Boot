@@ -1,5 +1,6 @@
 package com.newb;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
@@ -15,6 +16,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 @SpringBootApplication
 //查找servlet 和 filter 
 @ServletComponentScan
+@MapperScan(basePackages = "com.newb.mybatis.db.dao")
 public class DemoApplication {
 	
 	public static void main(String[] args) {

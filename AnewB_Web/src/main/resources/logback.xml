@@ -104,7 +104,6 @@
 		<appender-ref ref="DEBUG-OUT" />
 	</root>
 
-	<logger name="com.example.controller.test.dao" level="DEBUG" />
-	<logger name="com.example.controller.test.service" level="DEBUG" />
+	<logger name="com.newb.mybatis" level="DEBUG" />
 
 </configuration>

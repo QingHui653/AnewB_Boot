@@ -2,21 +2,23 @@ package com.newb.mybatis.db.entity;
 
 import java.io.Serializable;
 
-import com.alibaba.fastjson.annotation.JSONField;
+import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
-public class User implements Serializable,Comparable<User> {
+public class User implements Serializable,Comparable<User>  {
+	
 	private static final long serialVersionUID = 1L;
 	
+    @Id
     private Integer oid;
 
     private String username;
-    
-    @JSONField(serialize=false)
-    private String password;
 
+    private String password;
+    
     public User() {
 		super();
 	}
@@ -27,20 +29,16 @@ public class User implements Serializable,Comparable<User> {
 		this.username = username;
 		this.password = password;
 	}
-
-	/**
-     * 获取ID
-     *
-     * @return oid - ID
+    
+    /**
+     * @return oid
      */
     public Integer getOid() {
         return oid;
     }
 
     /**
-     * 设置ID
-     *
-     * @param oid ID
+     * @param oid
      */
     public void setOid(Integer oid) {
         this.oid = oid;
@@ -73,8 +71,8 @@ public class User implements Serializable,Comparable<User> {
     public void setPassword(String password) {
         this.password = password;
     }
-
-	@Override
+    
+    @Override
 	public int compareTo(User o) {
 		return this.getOid()-o.getOid();
 	}
@@ -88,5 +86,4 @@ public class User implements Serializable,Comparable<User> {
 	private String invMen(String username,String password) {
 		return "User["+username+","+password+"]";
 	}
-    
 }

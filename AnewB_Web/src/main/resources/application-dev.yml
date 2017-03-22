@@ -19,10 +19,29 @@ spring:
       # 响应页面默认后缀
       suffix: .jsp
       
-  devtools:
-    restart:
-      #开发者工具，配置是否修改后自动重启
-      enabled: true
+#与通用mapper冲突 。不能加开发者pom
+#  devtools:
+#    restart:
+#      #开发者工具，配置是否修改后自动重启
+#      enabled: true
 
-application:
+#mybatis:
+#    type-aliases-package: com.newb.mybatis.db.entity
+#    mapper-locations: classpath:mapper/*.xml
+
+
+mapper:
+    mappers:
+        - com.newb.mybatis.db.service.common.MyMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+
+application: 
   hello: Hello jsp From application

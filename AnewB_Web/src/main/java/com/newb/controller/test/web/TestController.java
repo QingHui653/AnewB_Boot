@@ -30,7 +30,7 @@ public class TestController {
 	@RequestMapping("list")
 	@ResponseBody
 	public Object list() {
-		User u=  userService.getUserById(1);
+		User u=  userService.selectByKey(1);
 		return u;
 	}
 	

@@ -47,10 +47,11 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- 开发者工具 热部署 -->
-		<dependency>
+		<!-- 与通用mapper冲突 -->
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
+		</dependency> -->
 		<!-- Web  servlet -->
 		<dependency>
     		<groupId>javax.servlet</groupId>
