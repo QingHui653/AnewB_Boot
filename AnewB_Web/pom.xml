@@ -8,6 +8,8 @@
 		<artifactId>demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	<packaging>war</packaging>
+	<!-- <packaging>jar</packaging> -->
 	<artifactId>AnewB_Web</artifactId>
 	<name>AnewB_Web</name>
 	<url>http://maven.apache.org</url>
@@ -18,7 +20,48 @@
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>AnewB_Mybatis</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- 打包插件 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- 打包名 -->
+					<finalName>newb</finalName>
+				</configuration>
+			</plugin>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<finalName>AnewBlib</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/assembly/assembly.xml</descriptor>
+					</descriptors>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.newb.DemoApplication</mainClass>
+                        </manifest>
+                    </archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+		</plugins>
+	</build>
+
 </project>

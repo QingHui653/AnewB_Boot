@@ -1,7 +1,7 @@
 server:
   #服务器端口
   port: 8081
-  #服务器访问目录(不加，直接访问8080/即可)
+   #服务器访问目录(不加，直接访问8080/即可)，打为war包，必须为空
   context-path: 
 
 spring:
@@ -18,6 +18,10 @@ spring:
       prefix: /WEB-INF/jsp/
       # 响应页面默认后缀
       suffix: .jsp
+      
+  aop:
+    #使用cglib 动态代理，不然默认使用java动态代理，会导致无法扫描到service报错
+    proxy-target-class: true
       
   devtools:
     restart:

@@ -48,6 +48,12 @@
 
 	<build>
 		<plugins>
+			<!-- 不能加在  mybatis 模块 ，不然mybatis模块也会打成 boot型 jar 包 ，会导致web模块扫描不到 mybatis的注解 -->
+			<!-- <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin> -->
+			
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
