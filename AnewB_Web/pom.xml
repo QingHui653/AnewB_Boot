@@ -8,13 +8,13 @@
 		<artifactId>demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<packaging>war</packaging>
-	<!-- <packaging>jar</packaging> -->
+	<!-- <packaging>war</packaging> -->
+	<packaging>jar</packaging>
 	<artifactId>AnewB_Web</artifactId>
 	<name>AnewB_Web</name>
-	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<docker.image.prefix>springio</docker.image.prefix>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -32,35 +32,34 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<!-- 打包名 -->
-					<finalName>newb</finalName>
+					<!-- <finalName>newb</finalName> -->
 				</configuration>
 			</plugin>
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.0.0</version>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.11</version>
 				<configuration>
-					<finalName>AnewBlib</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-					<descriptors>
-						<descriptor>src/assembly/assembly.xml</descriptor>
-					</descriptors>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.newb.DemoApplication</mainClass>
-                        </manifest>
-                    </archive>
+					<imageName>test</imageName>
+					<dockerDirectory>src/main/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
 				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin> -->
+			</plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
+				<version>3.0.0</version> <configuration> <finalName>AnewBlib</finalName> 
+				<appendAssemblyId>false</appendAssemblyId> <descriptors> <descriptor>src/assembly/assembly.xml</descriptor> 
+				</descriptors> <archive> <manifest> <mainClass>com.newb.DemoApplication</mainClass> 
+				</manifest> </archive> </configuration> <executions> <execution> <id>make-assembly</id> 
+				<phase>package</phase> <goals> <goal>single</goal> </goals> </execution> 
+				</executions> </plugin> -->
 		</plugins>
 	</build>
 
