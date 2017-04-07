@@ -21,29 +21,35 @@ public class ViewController {
 	  */
 	 @RequestMapping(value="/string",method= RequestMethod.GET) //,produces ="text/html;charset=UTF-8" 返回UTF-格式
 	 @ResponseBody
-	 public String showUserByString(){
+	 public String string(){
 	        String str="hello word 你好世界";
 	        return str;
-	 	}
+	 }
+	 
+	 @RequestMapping(value="/string2",method= RequestMethod.GET) //,produces ="text/html;charset=UTF-8" 返回UTF-格式
+	 @ResponseBody
+	 public Object string2(){
+	        return "hello word 你好世界";
+	 }
 	
-	/**
+	 /**
 	 * restful风格
 	 * @return
 	 */
-	@RequestMapping(value="/say1/{id}",method= RequestMethod.GET)
-	@ResponseBody
-	public Object say1(@PathVariable("id") Integer id) {
+	 @RequestMapping(value="/say1/{id}",method= RequestMethod.GET)
+	 @ResponseBody
+	 public Object say1(@PathVariable("id") Integer id) {
 		return "id: "+id;
-	}
+	 }
 	
-	/**
+	 /**
 	 * SOAP风格
 	 * @return
 	 */
-//	@RequestMapping(value="/say2",method= RequestMethod.GET)
-	@GetMapping(value="/say2")
-	@ResponseBody
-	public Object say2(@RequestParam(value="id",required=false,defaultValue="0") Integer id) {
+//	 @RequestMapping(value="/say2",method= RequestMethod.GET)
+	 @GetMapping(value="/say2")
+	 @ResponseBody
+	 public Object say2(@RequestParam(value="id",required=false,defaultValue="0") Integer id) {
 		return "id: "+id;
-	}
+	 }
 }

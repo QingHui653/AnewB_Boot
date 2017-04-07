@@ -105,5 +105,6 @@
 	</root>
 
 	<logger name="com.newb.mybatis" level="DEBUG" />
-
+	<logger name="com.dangdang.ddframe.rdb.sharding.parser" level="DEBUG" />
+	<logger name="com.dangdang.ddframe.rdb.sharding.router" level="DEBUG" />
 </configuration>

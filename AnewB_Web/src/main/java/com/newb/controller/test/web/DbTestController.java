@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.newb.mybatis.db.entity.Movie;
+import com.newb.mybatis.db.entity.TOrder;
 import com.newb.mybatis.db.entity.User;
 import com.newb.mybatis.db.service.MovieService;
+import com.newb.mybatis.db.service.TOrderServiceI;
 import com.newb.mybatis.db.service.UserService;
 
 import tk.mybatis.mapper.entity.Example;
@@ -24,6 +27,9 @@ public class DbTestController {
 	
 	@Autowired
 	private MovieService movieService;
+	
+	@Autowired
+	private TOrderServiceI tOrderService;
 	
 	/**
 	 * 添加事务
@@ -80,5 +86,21 @@ public class DbTestController {
 	public Object myMappePage(@PathVariable("pageNum") Integer pageNum, @PathVariable("pageNo") Integer pageNo) {
 		List<User> userList = userService.testPage(pageNo, pageNum);
 		return userList;
+	}
+	
+	@GetMapping(value="/sharding")
+	@ResponseBody
+	public Object shardingTest() {
+		/**
+		 * 分页插件不支持主键自增,SELECT LAST_INSERT_ID();配置在model中
+		 */
+		TOrder tO0=new TOrder(0, 2, "第0条数据");
+		int bool0= tOrderService.insertByXML(tO0);
+		TOrder tO1=new TOrder(1, 3, "第1条数据");
+		int bool1= tOrderService.insertByMapper(tO1);
+		TOrder tO2=new TOrder(2, 4, "第2条数据");
+		int bool2= tOrderService.insertByComm(tO2);
+		
+		return bool0;
 	}
 }

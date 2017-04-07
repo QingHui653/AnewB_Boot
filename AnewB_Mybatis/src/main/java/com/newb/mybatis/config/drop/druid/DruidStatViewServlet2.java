@@ -1,4 +1,4 @@
-package com.newb.mybatis.config;
+package com.newb.mybatis.config.drop.druid;
 
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import com.alibaba.druid.support.http.StatViewServlet;
 
 /**
+ * 已注释使用
  * druid servlet 具体看旧项目 web.xml
  * 开启SQL监控
  * 第一种方式 配置
@@ -22,6 +23,6 @@ import com.alibaba.druid.support.http.StatViewServlet;
 	         @WebInitParam(name="resetEnable",value="false")// 禁用HTML页面上的“Reset All”功能
 	}
 )*/
-public class DruidStatViewServlet extends StatViewServlet {
+public class DruidStatViewServlet2 extends StatViewServlet {
 	private static final long serialVersionUID = 1L;
 }

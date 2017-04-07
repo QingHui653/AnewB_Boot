@@ -43,7 +43,29 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.1.0</version>
 		</dependency>
-
+		<!-- 当当mybatis分库分表 -->
+		<dependency>
+    		<groupId>com.dangdang</groupId>
+    		<artifactId>sharding-jdbc-core</artifactId>
+    		<version>1.4.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.dangdang/sharding-jdbc-config-common -->
+		<dependency>
+    		<groupId>com.dangdang</groupId>
+    		<artifactId>sharding-jdbc-config-spring</artifactId>
+    		<version>1.4.1</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.dangdang</groupId>
+			<artifactId>sharding-jdbc-self-id-generator</artifactId>
+			<version>1.4.1</version>
+		</dependency> -->
+        <!-- 使用注解读取yml文件  eclipse提示添加 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -2,8 +2,8 @@ package com.newb.mybatis.db.entity;
 
 import javax.persistence.*;
 
-@Table(name = "t_order_2")
-public class TOrder2 {
+@Table(name = "t_order")
+public class TOrder {
     @Id
     @Column(name = "order_id")
     private Integer orderId;
@@ -13,7 +13,15 @@ public class TOrder2 {
 
     private String status;
 
-    /**
+    
+	public TOrder(Integer orderId, Integer userId, String status) {
+		super();
+		this.orderId = orderId;
+		this.userId = userId;
+		this.status = status;
+	}
+
+	/**
      * @return order_id
      */
     public Integer getOrderId() {

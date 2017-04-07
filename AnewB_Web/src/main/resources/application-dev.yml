@@ -1,9 +1,5 @@
 server:
-  #服务器端口
-  port: 8080
-  #服务器访问目录(不加，直接访问8080/即可)，打为war包，必须为空
-  context-path: 
-   
+  port: 8081
 
 spring:
   datasource:
@@ -12,40 +8,46 @@ spring:
     url: jdbc:mysql://localhost:3306/newb?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 123456
+    
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    druid: 
+      # 初始化大小，最小，最大
+      initialSize: 1
+      minIdle: 1
+      maxActive: 5
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      validationQuery: SELECT 1 
+      testOnBorrow: true
+      testWhileIdle: true
+      testOnReturn: false
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,log4j
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      #useGlobalDataSourceStat=true    
+    
+    
+  primary: 
+    name: testdb0
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/newb?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    
+  secondary: 
+    name: testdb1
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/newb2?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
 
-  mvc:
-    view:
-      # 页面默认前缀目录  这里是支持JSP
-      prefix: /WEB-INF/jsp/
-      # 响应页面默认后缀
-      suffix: .jsp
-  aop:
-    #使用cglib 动态代理，不然默认使用java动态代理，会导致无法扫描到service报错
-    proxy-target-class: true
-      
-#与通用mapper冲突 。不能加开发者pom
-#  devtools:
-#    restart:
-#      #开发者工具，配置是否修改后自动重启
-#      enabled: true
-
-#mybatis:
-#    type-aliases-package: com.newb.mybatis.db.entity
-#    mapper-locations: classpath:mapper/*.xml
-
-
-mapper:
-    mappers:
-        - com.newb.mybatis.db.service.common.MyMapper
-    not-empty: false
-    identity: MYSQL
-
-pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
-
-
-application: 
-  hello: Hello jsp From application
+  

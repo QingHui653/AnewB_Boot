@@ -30,9 +30,10 @@ public class DemoApplication extends SpringBootServletInitializer {
 
 	/**
 	 * 使用fastjson替代springboot 默认json
+	 * 会使得 返回字符串 自动带上引号
 	 * @return
 	 */
-	@Bean
+	/*@Bean
 	public HttpMessageConverters fastJsonHttpMessageConverters() {
 		FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
 		FastJsonConfig fastJsonConfig = new FastJsonConfig();
@@ -40,12 +41,11 @@ public class DemoApplication extends SpringBootServletInitializer {
 		fastConverter.setFastJsonConfig(fastJsonConfig);
 		HttpMessageConverter<?> converter = fastConverter;
 		return new HttpMessageConverters(converter);
-	}
+	}*/
 
-		//tomcat 使用 未测试是否可忽视
-		@Override
-    protected SpringApplicationBuilder configure(
-            SpringApplicationBuilder application) {
+	//tomcat 使用 War 包
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(DemoApplication.class);
     }
 
