@@ -15,7 +15,7 @@ public class DruidDataSourceConfig {
 
 	@Bean(name = "primaryDataSource")
 	@Primary
-	@ConfigurationProperties(prefix = "spring.datasource.druid")
+	@ConfigurationProperties(prefix = "spring.datasource.primary,spring.datasource.druid")
 	public DataSource primaryDataSource(
 			@Value("${spring.primary.driverClassName}") String driver,
 			@Value("${spring.primary.url}") String url, 

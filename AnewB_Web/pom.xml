@@ -8,7 +8,7 @@
 		<artifactId>demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<!-- <packaging>jar</packaging> -->
 	<artifactId>AnewB_Web</artifactId>
 	<name>AnewB_Web</name>
@@ -22,6 +22,12 @@
 			<artifactId>AnewB_Mybatis</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<!-- <dependency>
+			<groupId>com.example</groupId>
+			<artifactId>AnewB_Hibernate</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency> -->
 		
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<!-- Swagger -->

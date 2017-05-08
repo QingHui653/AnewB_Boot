@@ -21,8 +21,7 @@ public class LogProxy {
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	@Pointcut("execution(* com.newb.controller..*Controller.*(..))")
-	private void Log() {
-	}
+	private void Log() {}
 
 	@Before("Log()")
 	public void beforeAdvice(JoinPoint point) throws ClassNotFoundException {

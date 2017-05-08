@@ -58,7 +58,7 @@ public class TestController {
     @GetMapping("springUtil")
 	@ResponseBody
 	public Object springUtil() {
-		UserService uService= (UserService) SpringUtil.getBean("DataSource");
+		UserService uService= (UserService) SpringUtil.getBean("primaryDataSource");
 		User u=  uService.getUserById(1);
 		return u;
 	}

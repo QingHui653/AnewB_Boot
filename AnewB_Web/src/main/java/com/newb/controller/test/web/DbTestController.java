@@ -32,6 +32,17 @@ public class DbTestController {
 	private TOrderServiceI tOrderService;
 	
 	/**
+	 * 没有添加事务
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/test")
+	public Object test() {
+		Example e= new Example(Movie.class);
+		List<Movie> movieList =  movieService.selectByExample(e);
+		return movieList;
+	}
+	/**
 	 * 添加事务
 	 * @param id
 	 * @return
@@ -95,7 +106,7 @@ public class DbTestController {
 		 * 分页插件不支持主键自增,SELECT LAST_INSERT_ID();配置在model中
 		 */
 		TOrder tO0=new TOrder(0, 2, "第0条数据");
-		int bool0= tOrderService.insertByXML(tO0);
+		int bool0= tOrderService.insertByMapper(tO0);
 		TOrder tO1=new TOrder(1, 3, "第1条数据");
 		int bool1= tOrderService.insertByMapper(tO1);
 		TOrder tO2=new TOrder(2, 4, "第2条数据");
