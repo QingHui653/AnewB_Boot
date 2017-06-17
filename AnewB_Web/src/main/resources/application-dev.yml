@@ -5,9 +5,9 @@ spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/newb?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://119.23.231.239:3306/newb?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: 7262140
   # hibernate  
   jpa :
     database: MYSQL  
@@ -49,15 +49,15 @@ spring:
   primary: 
     name: testdb0
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/newb?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://119.23.231.239:3306/newb?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: 7262140
     
   secondary: 
     name: testdb1
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/newb2?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://119.23.231.239:3306/newb2?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: 7262140
 
   
