@@ -9,7 +9,6 @@ import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -22,13 +21,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author woshizbh
  *
  */
-@Configuration
-@EnableTransactionManagement
-public class MybatisConf {
+//@Configuration
+//@EnableTransactionManagement
+public class ShardMybatisConf {
 
-	@Autowired
-	@Qualifier("primaryDataSource")
-	private DataSource primaryDataSource;
+    @Autowired
+    private ShardDataSource shardDataSource;
 
     /**
      * 获取sqlFactory
@@ -38,8 +36,10 @@ public class MybatisConf {
      */
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
-    	//不使用sharding分库
-        DataSource dataSource = primaryDataSource;
+        /**
+         * sharding-jdbc 产生的DataSource
+         */
+        DataSource dataSource = shardDataSource.getShardingDataSource();
         TransactionFactory transactionFactory = new JdbcTransactionFactory();
         Environment environment = new Environment("development", transactionFactory, dataSource);
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration(environment);
@@ -56,7 +56,8 @@ public class MybatisConf {
 
     @Bean
     public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new DataSourceTransactionManager(primaryDataSource);
+
+        return new DataSourceTransactionManager(shardDataSource.getShardingDataSource());
     }
 
 }

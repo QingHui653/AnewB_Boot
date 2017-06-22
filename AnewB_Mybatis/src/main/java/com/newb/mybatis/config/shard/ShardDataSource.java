@@ -25,7 +25,7 @@ import com.dangdang.ddframe.rdb.sharding.api.strategy.table.TableShardingStrateg
  * @author woshizbh
  *
  */
-@Component
+//@Component
 public class ShardDataSource {
 
 	@Autowired
