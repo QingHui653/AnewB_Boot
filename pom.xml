@@ -14,10 +14,12 @@
 		<module>AnewB_Mybatis</module>
 		<module>AnewB_Web</module>
 		<!-- <module>AnewB_Hibernate</module> -->
-		<!-- <module>AnewB_Eureka_Server</module> -->
-    	<!-- <module>AnewB_Eureka_Client</module> -->
-    <module>Anewb_Eureka_Server</module>
-  </modules>
+		<module>AnewB_Eureka_Server</module>
+    	<module>AnewB_Eureka_Client</module>
+    	<module>Anewb_Eureka_Server_Ribbon</module>
+    	<module>Anewb_Eureka_Server_Feign</module>
+    	<module>AnewB_Eureka_Zuul</module>
+	</modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
