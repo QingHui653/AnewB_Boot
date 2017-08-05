@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+
 
 @Controller
 @RequestMapping("/view")
@@ -15,6 +17,7 @@ public class ViewController {
 	
 	/**
 	  *  返回中文字符串,需要在MVC中配置 不然会自动加引号
+	  *  swagger无法识别，返回的结果
 	  * @param modelMap
 	  * @param userId
 	  * @return
@@ -26,12 +29,25 @@ public class ViewController {
 	        return str;
 	 }
 	 
+	 /**
+	  * 
+	  * @return
+	  */
 	 @RequestMapping(value="/string2",method= RequestMethod.GET) //,produces ="text/html;charset=UTF-8" 返回UTF-格式
 	 @ResponseBody
 	 public Object string2(){
 	        return "hello word 你好世界";
 	 }
-	
+	 
+	 @RequestMapping(value="/json",method= RequestMethod.GET)
+	 @ResponseBody
+	 public Object json(){
+		 	String str="hello word 你好世界";
+		 	Gson gson =new Gson();
+		 	String json = gson.toJson(str);
+	        return json;
+	 }
+	 
 	 /**
 	 * restful风格
 	 * @return

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -40,6 +41,20 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter {
 //        registry.addInterceptor(new MyInterceptor1()).addPathPatterns("/**");
 //        registry.addInterceptor(new MyInterceptor2()).addPathPatterns("/**");
         super.addInterceptors(registry);
+    }
+    
+    /**
+     * 跨域问题
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
+        /*registry.addMapping("/api/**")
+        .allowedOrigins("http://domain2.com")
+        .allowedMethods("PUT", "DELETE")
+        .allowedHeaders("header1", "header2", "header3")
+        .exposedHeaders("header1", "header2")
+        .allowCredentials(false).maxAge(3600);*/
     }
  
 }
