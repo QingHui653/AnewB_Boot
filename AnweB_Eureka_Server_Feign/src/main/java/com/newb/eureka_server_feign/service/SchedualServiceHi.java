@@ -14,9 +14,12 @@ import com.newb.eureka_server_feign.config.SchedualServiceHiHystric;
 
 import feign.RequestLine;
 
-@FeignClient(value ="service-hi",fallback=SchedualServiceHiHystric.class)
+@FeignClient(value ="pangdo-client",fallback=SchedualServiceHiHystric.class)
 public interface SchedualServiceHi {
-	
+
+    @GetMapping(value = "/dc")
+    String consumer();
+
 	@GetMapping(value = "/hi")
     /*@RequestLine("GET /hi/name={name}")*/
     String sayHiFromClientOne(@RequestParam(value = "name") String name);

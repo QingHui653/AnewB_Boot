@@ -3,8 +3,9 @@ eureka:
     serviceUrl:
     #网上免费的eureka服务器
       defaultZone: http://eureka.didispace.com/eureka/
+#      defaultZone: http://localhost:1001/eureka/
 server:
-  port: 8762
+  port: 9003
 spring:
   application:
-    name: qhService2.0
+    name: pangdo-client

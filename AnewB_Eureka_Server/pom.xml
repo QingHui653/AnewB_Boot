@@ -8,8 +8,8 @@
 		<artifactId>demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>Anewb_Eureka_Server</artifactId>
-	<name>Anewb_Eureka_Server</name>
+	<artifactId>AnewB_Eureka_Server</artifactId>
+	<name>AnewB_Eureka_Server</name>
 	<packaging>jar</packaging>
 	<url>http://maven.apache.org</url>
 	
@@ -25,12 +25,17 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+
+
+		<!--<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+		</dependency>-->
+
 	</dependencies>
 
 	<dependencyManagement>

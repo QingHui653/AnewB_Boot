@@ -3,15 +3,40 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka.didispace.com/eureka/
 server:
-  port: 8769
+  port: 9103
 spring:
   application:
     name: service-zuul
+#自定义 路由 规则 或 者 直接 使用 serviceId 访问
+# 与 Eureka 结合 的 zuul 寻找 服务的方式
 zuul:
+  ribbon:
+    eager-load:
+      enabled: true
+  # 重定向问题 host 错误
+  add-host-header: true
+  # 全局 设置 请求头 使得 cookie 不丢失
+  sensitiveHeaders: Cookie,Set-Cookie,Authorization
   routes:
     api-a:
       path: /api-a/**
-      serviceId: service-ribbon
+
+      serviceId: pangdo-client
     api-b:
       path: /api-b/**
-      serviceId: service-feign
+      serviceId: consumer-ribbon
+
+# 传统 方式 配置
+#zuul:
+#  routes:
+#    api-a:
+#      path: /api-a/**
+#      url: http://localhost:8080/ # 配置当个
+#       serviceId=user-service     # 配置多个 与底层 配置对应
+#    api-b:
+#      path: /api-b/**
+#      url: http://localhost:8081/ # 配置当个
+
+#配置 多个
+#ribbon.eureka.enabled=false
+#user-service.ribbon.listOfServers=http://localhost:8080/,http://localhost:8081/

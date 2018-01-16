@@ -16,7 +16,10 @@
 		<!-- <module>AnewB_Hibernate</module> -->
 		<module>AnewB_Eureka_Server</module>
     	<module>AnewB_Eureka_Client</module>
-    	<module>Anewb_Eureka_Server_Ribbon</module>
+    	<module>AnewB_Eureka_Client2</module>
+    	<module>AnewB_Eureka_Consumer</module>
+    	<module>AnewB_Eureka_Server_Ribbon</module>
+    	<module>AnewB_Hystrix_Dashboard</module>
     	<module>AnweB_Eureka_Server_Feign</module>
     	<module>AnewB_Eureka_Zuul</module>
 	</modules>
@@ -24,7 +27,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.3.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -36,6 +39,10 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<!-- web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -85,11 +92,11 @@
 			<version>1.2.24</version>
 		</dependency>
 		<!-- apache 工具包 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
-		</dependency>
+		</dependency>-->
 		<!-- 使用注解完成 Getter等 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -97,15 +104,35 @@
 		</dependency>
 
 		<!-- 工具类 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>io.springside</groupId>
 			<artifactId>springside-utils</artifactId>
 			<version>5.0.0-RC1</version>
-		</dependency>
+		</dependency>-->
 
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.yml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.yml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<!-- 修改jdk编译版本 必须选择先maven后spring-boot-maven -->
 			<plugin>

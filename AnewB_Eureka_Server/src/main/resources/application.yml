@@ -1,11 +1,19 @@
 server:
-  port: 8761
+  port: 1001
 
 eureka:
   instance:
     hostname: localhost
   client:
+    # 是否作为客户端 注册
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#Consul 的 注册中心
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500

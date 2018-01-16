@@ -1,10 +1,7 @@
 package com.newb.eureka_server_ribbon.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import com.newb.eureka_server_ribbon.service.HelloService;
@@ -28,4 +25,13 @@ public class HelloControler {
         return restTemplate.getForEntity("http://SERVICE-HI/add?a=10&b=20", String.class).getBody();
     }
 
+    @GetMapping("/consumer")
+    public String dc() {
+        return restTemplate.getForObject("http://pangdo-client/dc", String.class);
+    }
+
+    @RequestMapping(value = "/consumer2")
+    public String consumer2(){
+        return helloService.consumer();
+    }
 }

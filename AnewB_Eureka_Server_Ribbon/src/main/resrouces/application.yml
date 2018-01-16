@@ -1,9 +1,55 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka.didispace.com/eureka/
+
 server:
-  port: 8764
+  port: 9101
+
 spring:
   application:
-    name: service-ribbon
+    name: consumer-ribbon
+  cloud:
+      loadbalancer:
+        retry:
+          # 开启 重试
+          enabled: true
+
+# Ribbon 是在 调用是才第一次加载
+# 使用 此 可以在 刚启动 时 就创建
+ribbon:
+  eager-load:
+    enabled: true
+    clients: pangdo-client
+#    #是否 全部重试
+#    OkToRetryOnAllOperations: true
+#    # 连接 超时 时间
+#    ConnectTimeout: 250
+#    # 处理 超时时间
+#    ReadTimeout: 1000
+#    # 切换实例的重试次数
+#    MaxAutoRetriesNextServer: 2
+#    # 对当前实例的重试次数
+#    MaxAutoRetries: 1
+
+pangdo-client:
+  ribbon:
+    #是否 全部重试
+    OkToRetryOnAllOperations: true
+    # 连接 超时 时间
+    ConnectTimeout: 250
+    # 处理 超时时间
+    ReadTimeout: 1000
+    # 切换实例的重试次数
+    MaxAutoRetriesNextServer: 2
+    # 对当前实例的重试次数
+    MaxAutoRetries: 1
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

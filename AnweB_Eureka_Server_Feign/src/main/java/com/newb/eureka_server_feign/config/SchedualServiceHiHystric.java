@@ -11,7 +11,12 @@ import com.newb.eureka_server_feign.service.SchedualServiceHi;
  */
 @Component
 public class SchedualServiceHiHystric implements SchedualServiceHi {
-	
+
+    @Override
+    public String consumer() {
+        return "sorry";
+    }
+
     @Override
     public String sayHiFromClientOne(String name) {
         return "sorry "+name;

@@ -1,12 +1,13 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka.didispace.com/eureka/
 server:
-  port: 8765
+  port: 9102
 spring:
   application:
-    name: service-feign
+    name: client-feign
 feign:
   hystrix: 
     enabled: true
