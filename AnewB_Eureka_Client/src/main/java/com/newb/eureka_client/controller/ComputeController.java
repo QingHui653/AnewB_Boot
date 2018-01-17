@@ -25,7 +25,9 @@ public class ComputeController {
 
 	@GetMapping("/dc")
 	public String dc() throws InterruptedException {
-		Thread.sleep(10000L);
+		logger.info(" 进入client 客户端");
+		int i =1/0;
+		Thread.sleep(5000L);
 		String services = "Services: " + client.getServices();
 		System.out.println(services);
 		return services;

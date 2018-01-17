@@ -21,7 +21,20 @@ spring:
 ribbon:
   eager-load:
     enabled: true
-    clients: pangdo-client
+#    clients: pangdo-client
+  #是否 全部重试
+  OkToRetryOnAllOperations: true
+  # 连接 超时 时间
+  ConnectTimeout: 250
+  # 处理 超时时间
+  ReadTimeout: 1000
+  # 切换实例的重试次数
+  MaxAutoRetriesNextServer: 2
+  # 对当前实例的重试次数
+  MaxAutoRetries: 1
+
+#pangdo-client:
+#  ribbon:
 #    #是否 全部重试
 #    OkToRetryOnAllOperations: true
 #    # 连接 超时 时间
@@ -32,19 +45,6 @@ ribbon:
 #    MaxAutoRetriesNextServer: 2
 #    # 对当前实例的重试次数
 #    MaxAutoRetries: 1
-
-pangdo-client:
-  ribbon:
-    #是否 全部重试
-    OkToRetryOnAllOperations: true
-    # 连接 超时 时间
-    ConnectTimeout: 250
-    # 处理 超时时间
-    ReadTimeout: 1000
-    # 切换实例的重试次数
-    MaxAutoRetriesNextServer: 2
-    # 对当前实例的重试次数
-    MaxAutoRetries: 1
 
 hystrix:
   command:
