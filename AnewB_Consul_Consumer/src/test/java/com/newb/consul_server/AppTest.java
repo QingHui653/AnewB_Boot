@@ -1,4 +1,4 @@
-package com.newb.eureka_server;
+package com.newb.consul_server;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

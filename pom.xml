@@ -16,9 +16,11 @@
 		<!-- <module>AnewB_Hibernate</module> -->
 		<module>AnewB_Eureka_Server</module>
     	<module>AnewB_Eureka_Client</module>
-    	<module>AnewB_Eureka_Client2</module>
-    	<module>AnewB_Eureka_Consumer</module>
-    	<module>AnewB_Eureka_Server_Ribbon</module>
+		<module>AnewB_Eureka_Client2</module>
+		<module>AnewB_Eureka_Consumer</module>
+		<module>AnewB_Consul_Server</module>
+		<module>AnewB_Consul_Consumer</module>
+		<module>AnewB_Eureka_Server_Ribbon</module>
     	<module>AnewB_Hystrix_Dashboard</module>
     	<module>AnweB_Eureka_Server_Feign</module>
     	<module>AnewB_Eureka_Zuul</module>

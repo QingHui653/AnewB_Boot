@@ -1,16 +1,16 @@
-package com.newb.eureka_server;
+package com.newb.consul_server;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableEurekaServer
-public class EurekaServerApplication {
+@EnableDiscoveryClient
+public class ConsulConsumerApplication {
 
 	public static void main(String[] args) {
 //		SpringApplication.run(Application.class, args);
-		new SpringApplicationBuilder(EurekaServerApplication.class).web(true).run(args);
+		new SpringApplicationBuilder(ConsulConsumerApplication.class).web(true).run(args);
 	}
 }
 /**

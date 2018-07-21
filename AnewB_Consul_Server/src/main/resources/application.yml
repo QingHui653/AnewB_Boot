@@ -1,0 +1,15 @@
+server:
+  port: 8501
+
+#Consul 的 注册中心
+spring:
+  application:
+      name: spring-cloud-consul-producer
+  cloud:
+    consul:
+      host: 193.112.44.172
+      port: 8500
+      discovery:
+        healthCheckPath: /
+        healthCheckInterval: 5s
+        serviceName: service-producer
