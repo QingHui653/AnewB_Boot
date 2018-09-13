@@ -1,6 +1,8 @@
 package com.newb.eureka_server_ribbon.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,7 +15,8 @@ public class HelloControler {
     RestTemplate restTemplate;
     @Autowired
     HelloService helloService;
-    
+    @Autowired
+    LoadBalancerClient loadBalancerClient;
     
     @RequestMapping(value = "/hi")
     public String hi(@RequestParam String name){
@@ -28,6 +31,14 @@ public class HelloControler {
     @GetMapping("/consumer")
     public String dc() {
         return restTemplate.getForObject("http://pangdo-client/dc", String.class);
+    }
+
+    @GetMapping("/consumer")
+    public String consumer() {
+        ServiceInstance serviceInstance = loadBalancerClient.choose("pangdo-client");
+        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/dc";
+        System.out.println(url);
+        return restTemplate.getForObject(url, String.class);
     }
 
     @RequestMapping(value = "/consumer2")

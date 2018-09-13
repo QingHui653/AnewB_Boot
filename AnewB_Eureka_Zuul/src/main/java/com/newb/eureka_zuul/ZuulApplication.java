@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 @EnableZuulProxy
 @EnableEurekaClient
 @SpringBootApplication
+/**
+ * zuul网关 提供 负载均衡 动态路由 反向代理、权限认证等等
+ */
 public class ZuulApplication {
 
 	public static void main(String[] args) {
