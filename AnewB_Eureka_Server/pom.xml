@@ -8,7 +8,7 @@
 		<artifactId>demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>AnewB_Eureka_Server</artifactId>
+	<artifactId>MyEureka</artifactId>
 	<name>AnewB_Eureka_Server</name>
 	<packaging>jar</packaging>
 	<url>http://maven.apache.org</url>
@@ -18,6 +18,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Dalston.SR1</spring-cloud.version>
+		<start-class>com.newb.eureka_server.EurekaServerApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -49,4 +50,26 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<imageName>boot</imageName>
+					<dockerDirectory>src/main/resources</dockerDirectory>
+					<dockerHost>http://119.23.231.239:23755</dockerHost>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
