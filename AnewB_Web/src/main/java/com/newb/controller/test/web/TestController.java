@@ -2,6 +2,7 @@ package com.newb.controller.test.web;
 
 import java.util.Map;
 
+import com.newb.starter_log.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,9 @@ public class TestController {
 	
 	@Autowired
 	private UserService userService;
-	
+	@Autowired
+	private ExampleService exampleService;
+
 	@Autowired
 	private pro pro;
 	
@@ -77,7 +80,6 @@ public class TestController {
     
     /**
 	 * 测试从配置文件读取参数
-	 * @param map
 	 * @return
 	 */
     @GetMapping("/helloYml")
@@ -87,4 +89,15 @@ public class TestController {
     	System.out.println("--读取yml "+pro.getValidationQuery());
         return pro.getUsername();
     }
+
+	/**
+	 * 测试自定义 starter
+	 * @param word
+	 * @return
+	 */
+	@GetMapping("/input")
+	@ResponseBody
+	public String input(String word){
+		return exampleService.wrap(word);
+	}
 }

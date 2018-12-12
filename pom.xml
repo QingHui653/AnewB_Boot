@@ -24,6 +24,7 @@
     	<module>AnewB_Hystrix_Dashboard</module>
     	<module>AnweB_Eureka_Server_Feign</module>
     	<module>AnewB_Eureka_Zuul</module>
+    	<module>AnewB_Starter_Log</module>
 	</modules>
 
 	<parent>

@@ -68,4 +68,11 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+example:
+  service:
+    enabled: true
+    prefix: (这是个前缀)
+    suffix: (这是个后缀)
+
   
