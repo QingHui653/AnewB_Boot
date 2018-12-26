@@ -1,0 +1,31 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: neo_route
+          uri: http://www.ityouknow.com
+          #predicates : 路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将 Predicate 组合成其他复杂的逻辑（比如：与，或，非）
+          #filters：过滤规则，本示例暂时没用。
+          predicates:
+            - Path=/spring-cloud
+            # 只有此时间段才转发 - Between -After -Before
+            - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+            # Cookie name 值和正则表达式去匹配
+            - Cookie=ityouknow, kee.e
+            #一个 header 中属性名称和一个正则表达式
+            - Header=X-Request-Id, \d+
+            #Host Route Predicate 接收一组参数，一组匹配的域名列表，这个模板是一个 ant 分隔的模板，用.号作为分隔符
+            - Host=**.ityouknow.com
+            # 通过请求方式匹配
+            - Method=GET
+            # 通过请求路径匹配
+            - Path=/foo/{segment}
+            # 通过请求参数匹配
+            # 只要请求中包含 smile 属性的参数即可匹配路由
+            - Query=smile
+            # 只要当请求中包含 keep 属性并且参数值是以 pu 开头的长度为三位的字符串才会进行匹配和路由。
+            - Query=keep, pu.
+            # 通过请求 ip 地址进行匹配
+            - RemoteAddr=192.168.1.1/24
