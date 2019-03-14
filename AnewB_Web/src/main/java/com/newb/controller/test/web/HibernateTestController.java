@@ -11,14 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hibernate")
-public class HibernateTestController {/*
+public class HibernateTestController {
 	
-	@Autowired
-	private UserRepository userRepository;
-	
-	@GetMapping("testHibernate")
-	@ResponseBody
-	public Object testHibernate() {
-		return userRepository.findAll();
-	}
-*/}
+//	@Autowired
+//	private UserRepository userRepository;
+//
+//	@GetMapping("testHibernate")
+//	@ResponseBody
+//	public Object testHibernate() {
+//		return userRepository.findAll();
+//	}
+//	@GetMapping("testById")
+//	@ResponseBody
+//	public Object testHibernate(String id) {
+//		return userRepository.findById(Long.parseLong(id));
+//	}
+}

@@ -15,7 +15,7 @@ import com.newb.hibernate.db.entity.User;
 @Qualifier("userRepository")
 public interface UserRepository extends CrudRepository<User,Long>{  
 	
-    public User findOne(Long id);  
+    public User findByOid(Long id);
   
     @Query("select t from User t where t.username=:name")  
     public User findUserByName(@Param("name") String name);  

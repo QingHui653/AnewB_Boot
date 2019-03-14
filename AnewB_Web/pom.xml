@@ -18,17 +18,24 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>AnewB_Mybatis</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
-		<!-- <dependency>
+		<!--mybatis 不能与 hibernate 同时使用 ,通用mapper 依赖的 jar 与 Hibernate 自带的 jar 有冲突 无法排除-->
+		<!--<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>AnewB_Hibernate</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
-		
+		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<!-- Swagger -->
 		<!--springfox的基本信息文档: http://springfox.github.io/springfox/docs/current/#architecture-->

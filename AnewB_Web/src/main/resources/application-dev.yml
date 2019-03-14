@@ -5,14 +5,14 @@ spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://119.23.231.239:3306/newb?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.1.103:33066/newb?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 7262140
+    password: 123456
   # hibernate  
   jpa :
     database: MYSQL  
     hibernate:
-      ddl-auto: update  
+      ddl-auto: create
       dialect: org.hibernate.dialect.MySQL5Dialect  
     show-sql: true  
     properties: 
@@ -49,16 +49,16 @@ spring:
   primary: 
     name: testdb0
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://119.23.231.239:3306/newb?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.1.103:33066/newb?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 7262140
+    password: 123456
     
   secondary: 
     name: testdb1
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://119.23.231.239:3306/newb2?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.1.103:33066/newb2?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 7262140
+    password: 123456
 
 eureka:
   instance:

@@ -13,7 +13,7 @@
 	<modules>
 		<module>AnewB_Mybatis</module>
 		<module>AnewB_Web</module>
-		<!-- <module>AnewB_Hibernate</module> -->
+		<module>AnewB_Hibernate</module>
 		<module>AnewB_Eureka_Server</module>
     	<module>AnewB_Eureka_Client</module>
 		<module>AnewB_Eureka_Client2</module>

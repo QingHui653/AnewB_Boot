@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 //不能一次读取多个
-@ConfigurationProperties("spring.datasource,spring.share")
+//@ConfigurationProperties("spring.datasource,spring.share")
+@ConfigurationProperties("spring.datasource")
 public class pro {
 	private String url;
 	

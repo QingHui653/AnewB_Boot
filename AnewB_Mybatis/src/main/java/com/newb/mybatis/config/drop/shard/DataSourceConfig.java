@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Primary;
 //@Configuration
 public class DataSourceConfig {
 
-    @Bean(name = "primaryDataSource")
+    /*@Bean(name = "primaryDataSource")
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource.primary")
     public DataSource primaryDataSource() {
@@ -26,6 +26,6 @@ public class DataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.secondary")
     public DataSource secondaryDataSource() {
         return DataSourceBuilder.create().build();
-    }
+    }*/
 
 }

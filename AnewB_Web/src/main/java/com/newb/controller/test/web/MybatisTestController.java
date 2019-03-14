@@ -2,6 +2,8 @@ package com.newb.controller.test.web;
 
 import java.util.List;
 
+import com.newb.common.util.SpringUtil;
+import com.newb.mybatis.config.test.pro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +20,11 @@ import com.newb.mybatis.db.service.UserService;
 
 import tk.mybatis.mapper.entity.Example;
 
+import javax.sql.DataSource;
+
 @RestController
 @RequestMapping("/db")
-public class DbTestController {
+public class MybatisTestController {
 	
 	@Autowired
 	private UserService userService;
@@ -30,7 +34,44 @@ public class DbTestController {
 	
 	@Autowired
 	private TOrderServiceI tOrderService;
-	
+
+	@Autowired
+	private pro pro;
+
+	/**
+	 * 测试从配置文件读取参数
+	 * @return
+	 */
+	@GetMapping("/helloYml")
+	@ResponseBody
+	public String helloYml(){
+		System.out.println("--读取yml "+pro.getUrl());
+		System.out.println("--读取yml "+pro.getValidationQuery());
+		return pro.getUsername();
+	}
+
+	/**
+	 * 测试spring boot 运行 返回json
+	 * @return
+	 */
+	@GetMapping("springUtil")
+	@ResponseBody
+	public Object springUtil() {
+		DataSource dataSource= (DataSource) SpringUtil.getBean("primaryDataSource");
+		System.out.println(dataSource.toString());
+		return dataSource.toString();
+	}
+
+	/**
+	 * 测试spring boot 运行 返回json
+	 * @return
+	 */
+	@GetMapping("key1")
+	@ResponseBody
+	public Object key() {
+		return userService.selectByKey(1);
+	}
+
 	/**
 	 * 没有添加事务
 	 * @param id

@@ -41,7 +41,7 @@ spring:
 mapper:
     mappers:
         - com.newb.mybatis.db.service.common.MyMapper
-    not-empty: false
+    not-empty: true
     identity: MYSQL
 
 pagehelper:

@@ -15,7 +15,8 @@ public class DruidDataSourceConfig {
 
 	@Bean(name = "primaryDataSource")
 	@Primary
-	@ConfigurationProperties(prefix = "spring.datasource.primary,spring.datasource.druid")
+//	@ConfigurationProperties(prefix = "spring.datasource.primary,spring.datasource.druid")
+	@ConfigurationProperties(prefix = "spring.datasource.primary")
 	public DataSource primaryDataSource(
 			@Value("${spring.primary.driverClassName}") String driver,
 			@Value("${spring.primary.url}") String url, 
@@ -28,16 +29,15 @@ public class DruidDataSourceConfig {
 		druidDataSource.setPassword(password);
 
 		return druidDataSource;
-
 	}
 
-	@Bean(name = "secondaryDataSource")
-	@ConfigurationProperties(prefix = "spring.datasource.secondary,spring.datasource.druid")
+	/*@Bean(name = "secondaryDataSource")
+	@ConfigurationProperties(prefix = "spring.datasource.secondary")
 	public DataSource secondaryDataSource(
-			@Value("${spring.primary.driverClassName}") String driver,
-			@Value("${spring.primary.url}") String url, 
-			@Value("${spring.primary.username}") String username,
-			@Value("${spring.primary.password}") String password) {
+			@Value("${spring.secondary.driverClassName}") String driver,
+			@Value("${spring.secondary.url}") String url,
+			@Value("${spring.secondary.username}") String username,
+			@Value("${spring.secondary.password}") String password) {
 		DruidDataSource druidDataSource = new DruidDataSource();
 		druidDataSource.setDriverClassName(driver);
 		druidDataSource.setUrl(url);
@@ -45,5 +45,5 @@ public class DruidDataSourceConfig {
 		druidDataSource.setPassword(password);
 			
 		return druidDataSource;
-	}
+	}*/
 }
