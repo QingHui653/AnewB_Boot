@@ -20,20 +20,29 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class DcController {
 	
-	private final Logger logger = LoggerFactory.getLogger(DcController.class);
-
 	@Autowired
 	LoadBalancerClient loadBalancerClient;
 	@Autowired
 	RestTemplate restTemplate;
 
-	@GetMapping("/consumer")
+	@GetMapping("/dc")
 	public String dc() {
 		/**
 		 * 普通的 消费者 需要 自己 选择 实例 进行消费
 		 */
 		ServiceInstance serviceInstance = loadBalancerClient.choose("pangdo-client");
 		String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/dc";
+		System.out.println(url);
+		return restTemplate.getForObject(url, String.class);
+	}
+
+	@GetMapping("/add")
+	public String add() {
+		/**
+		 * 普通的 消费者 需要 自己 选择 实例 进行消费
+		 */
+		ServiceInstance serviceInstance = loadBalancerClient.choose("pangdo-client");
+		String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/add?a=3&b=6";
 		System.out.println(url);
 		return restTemplate.getForObject(url, String.class);
 	}

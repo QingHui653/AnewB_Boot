@@ -2,8 +2,8 @@ eureka:
   client:
     serviceUrl:
     #网上免费的eureka服务器
-#      defaultZone: http://eureka.didispace.com/eureka/
-      defaultZone: http://localhost:1001/eureka/
+      defaultZone: http://eureka.didispace.com/eureka/
+#      defaultZone: http://localhost:1001/eureka/
 server:
   port: 2101
 spring:

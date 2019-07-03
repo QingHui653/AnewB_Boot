@@ -15,7 +15,7 @@ public class HiController {
 	@Autowired
 	SchedualServiceHi schedualServiceHi;
 
-	@GetMapping(value = "/consumer")
+	@GetMapping(value = "/dc")
 	public String dc() {
 		return schedualServiceHi.consumer();
 	}

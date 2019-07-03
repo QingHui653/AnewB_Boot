@@ -14,7 +14,7 @@ public class SchedualServiceHiHystric implements SchedualServiceHi {
 
     @Override
     public String consumer() {
-        return "sorry";
+        return "sorry,服务提供者出错!";
     }
 
     @Override

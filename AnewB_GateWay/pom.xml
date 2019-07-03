@@ -17,7 +17,15 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+<!--	<parent>-->
+<!--		<groupId>org.springframework.boot</groupId>-->
+<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+<!--		<version>2.0.6.RELEASE</version>-->
+<!--		<relativePath/>-->
+<!--	</parent>-->
+
 	<dependencies>
+<!--		spring-boot使用2.0版本采用gateWay,但是会导致其他 eureka jar有问题.-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
@@ -29,4 +37,18 @@
 		</dependency>
 	</dependencies>
 
+<!--	当 spring-boot 与 spring-cloud的 包不匹配时会出现此错误-->
+<!--	java.lang.NoSuchMethodError: org.springframework.boot.builder.SpringApplicationBuilder.<init>([Ljava/lang/Class;)V-->
+<!--	https://www.cnblogs.com/zer0Black/p/8613224.html-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Finchley.SR2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
