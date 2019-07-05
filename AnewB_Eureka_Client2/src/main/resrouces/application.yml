@@ -9,3 +9,8 @@ server:
 spring:
   application:
     name: pangdo-client
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      #eager: true

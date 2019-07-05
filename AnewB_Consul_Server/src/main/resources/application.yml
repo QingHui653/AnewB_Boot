@@ -7,8 +7,8 @@ spring:
       name: spring-cloud-consul-producer
   cloud:
     consul:
-      host: 193.112.44.172
-      port: 8500
+      host: frp1.chuantou.org
+      port: 54110
       discovery:
         healthCheckPath: /
         healthCheckInterval: 5s
