@@ -1,0 +1,10 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: pangdo-nacos-client
+  cloud:
+    nacos:
+      discovery:
+        #网上免费的nacos服务器
+        server-addr: nacos.didispace.com:80
