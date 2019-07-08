@@ -10,22 +10,23 @@ import org.springframework.web.client.RestTemplate;
 
 
 @RestController
-public class ServiceController {
+public class Service1Controller {
+
+    private final Logger logger = LoggerFactory.getLogger(Service1Controller.class);
 
     @Autowired
     LoadBalancerClient loadBalancerClient;
-	
-	private final Logger logger = LoggerFactory.getLogger(ServiceController.class);
-
 
     @GetMapping("/test")
     public String test() {
         // 通过spring cloud common中的负载均衡接口选取服务提供节点实现接口调用
         ServiceInstance serviceInstance = loadBalancerClient.choose("pangdo-nacos-client");
-        String url = serviceInstance.getUri() + "/hi?name=" + "didi";
+//        String url = serviceInstance.getUri() + "/hi?name=" + "didi";
+        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hi?name=didid";
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(url, String.class);
-        return "Invoke : " + url + ", return : " + result;
+        return "loadBalancerClient + RestTemplate \n " +
+                "Invoke : " + url + ", return : " + result;
     }
 
 }
