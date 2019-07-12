@@ -1,0 +1,15 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: pangdo-nacos-client
+  cloud:
+    nacos:
+      discovery:
+        #网上免费的nacos服务器
+        server-addr: nacos.didispace.com:80
+app:
+  id: SampleApp
+apollo:
+  meta: http://usla.waiwang.men:44128
+#-Dapp.id=kp-server-task -Dapollo.meta=http://192.168.8.12:18080

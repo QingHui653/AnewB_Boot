@@ -40,10 +40,10 @@ gateWay 需要 springboot 2.0.x
 ![withSpringBoot](https://blog.csdn.net/tianyaleixiaowu/article/details/89916891)
 
 ### TODO
-1. 配置中心 使用(携程 apollo)
-2. 注册中心 增加 Nacos(服务注册 与 配置中心)
-3. 增加 服务端 注册到 Nacos
-4. Web + Feign调用服务 Nacos
+1. ~~配置中心 使用(携程 apollo)~~
+2. ~~注册中心 增加 Nacos(服务注册 与 配置中心)~~
+3. ~~增加 服务端 注册到 Nacos~~
+4. ~~Web + Feign调用服务 Nacos~~
 5. 增加 RocketMQ
 6. 增加 10 的 spring-cloud-steam
 7. 增加 11 的 spring-cloud-bus 

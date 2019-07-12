@@ -1,4 +1,4 @@
-package com.newb.nacos_client;
+package com.newb.apollo;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

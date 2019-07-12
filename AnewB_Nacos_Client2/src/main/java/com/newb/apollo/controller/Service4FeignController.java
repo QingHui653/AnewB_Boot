@@ -1,4 +1,4 @@
-package com.newb.nacos_client.controller;
+package com.newb.apollo.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

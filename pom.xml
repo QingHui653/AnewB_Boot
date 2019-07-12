@@ -28,6 +28,7 @@
     	<module>AnewB_Eureka_Zuul</module>
     	<module>AnewB_GateWay</module>
     	<module>AnewB_Starter_Log</module>
+    	<module>AnewB_Apollo</module>
 	</modules>
 
 	<parent>
