@@ -12,5 +12,7 @@ spring:
   cloud:
     sentinel:
       transport:
-        dashboard: localhost:8080
-      #eager: true
+#        dashboard: 192.168.8.12:18085
+        dashboard: 127.0.0.1:8080
+      enabled: true
+      eager: true

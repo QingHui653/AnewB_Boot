@@ -4,6 +4,8 @@
  */
 package com.newb.eureka_client2.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.degrade.DegradeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,9 @@ public class ComputeController {
 	}
 	
     @RequestMapping("/hi")
-    public String home(@RequestParam String name) {
+	@SentinelResource(fallback = "restHomeFallback" )
+    public String home(@RequestParam String name) throws DegradeException  {
+		if(true) throw new DegradeException("123");
         return "2--- "+"hi "+name+",i am from port:" +port;
     }
     
@@ -47,4 +51,10 @@ public class ComputeController {
     public String restHome(@PathVariable String name) {
         return "2--- "+"hi "+name+",i am from port:" +port;
     }
+
+    //wiki https://github.com/alibaba/Sentinel/wiki/%E6%B3%A8%E8%A7%A3%E6%94%AF%E6%8C%81
+	public String restHomeFallback(String name) {
+		logger.info(name);
+		return "error";
+	}
 }
