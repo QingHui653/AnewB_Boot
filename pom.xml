@@ -29,6 +29,7 @@
     	<module>AnewB_GateWay</module>
     	<module>AnewB_Starter_Log</module>
     	<module>AnewB_Apollo</module>
+    	<module>AnewB_Stream</module>
 	</modules>
 
 	<parent>

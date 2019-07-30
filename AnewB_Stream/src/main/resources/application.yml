@@ -1,0 +1,10 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: steam-hello
+  rabbitmq:
+    host: frp.kerwin.cn
+    port: 44132
+    username: guest
+    password: guest
