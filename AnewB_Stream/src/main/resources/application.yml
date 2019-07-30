@@ -8,3 +8,21 @@ spring:
     port: 44132
     username: guest
     password: guest
+  cloud:
+    stream:
+      bindings:
+        input:
+          group: service-A
+          destination: greetings
+          consumer:
+            #开启消息分区
+            partitioned: true
+        output:
+          destination: greetings
+          producer:
+            #分区规则
+            partitionKeyExpression: payload
+            #消息分区的数量
+            partitionCount: 2
+      instance-count: 2
+      instance-index: 0

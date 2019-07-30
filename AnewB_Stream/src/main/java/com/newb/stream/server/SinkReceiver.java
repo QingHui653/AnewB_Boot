@@ -17,7 +17,13 @@ public class SinkReceiver {
 
     @StreamListener(Sink.INPUT)
     public void receive(Object payload) {
-        logger.info("Received: " + payload);
+        logger.info("收到消息: " + payload);
     }
+//    @StreamListener(Sink.INPUT)
+////    @SendTo(value ={Source.OUTPUT})
+//    public String receive(Object payload) {
+//        logger.info("Received: " + payload);
+//        return "OK";
+//    }
 
 }

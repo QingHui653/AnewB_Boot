@@ -45,7 +45,7 @@ gateWay 需要 springboot 2.0.x
 3. ~~增加 服务端 注册到 Nacos~~
 4. ~~Web + Feign调用服务 Nacos~~
 5. ~~增加 RocketMQ~~(位于AnewB 的 mq 模块中 与其他mq 在一起)
-6. 增加 10 的 spring-cloud-steam
+6. ~~增加 10 的 spring-cloud-steam~~(![wiki](https://blog.csdn.net/hubo_88/article/details/80904165))
 7. 增加 11 的 spring-cloud-bus 
 
 ### 事务 

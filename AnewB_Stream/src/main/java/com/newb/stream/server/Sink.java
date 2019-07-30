@@ -14,5 +14,4 @@ public interface Sink {
 
     @Input(Sink.INPUT)
     SubscribableChannel input();
-
 }
