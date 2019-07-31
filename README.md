@@ -9,9 +9,10 @@
     7. Hystrix监控面板
     8. Hystrix监控数据聚合 turbine ------(跳过)
     9. zuul 服务网关
-    10. 消息驱动的微服务 -----(跳过)
+    10. 消息驱动的微服务(spring-cloud-stream-rabbitmq)
     11. 消息总线-----(跳过)
     12. 增加 ali-sentinel 来替代 (Hystrix 监控,隔离,限流,断路器)
+    13. 增加 Nacos (服务注册配置,配置中心[未使用])
     
 ### 问题
 因为现在使用的 springboot 版本为 1.5.x,
@@ -46,7 +47,8 @@ gateWay 需要 springboot 2.0.x
 4. ~~Web + Feign调用服务 Nacos~~
 5. ~~增加 RocketMQ~~(位于AnewB 的 mq 模块中 与其他mq 在一起)
 6. ~~增加 10 的 spring-cloud-steam~~(![wiki](https://blog.csdn.net/hubo_88/article/details/80904165))
-7. 增加 11 的 spring-cloud-bus 
+7  ~~spring-cloud-config~~(spring-cloud-config 配置管理:使用Apollo代替)
+8. ~~增加 11 的 spring-cloud-bus~~(消息总线 配合spring-cloud-config 实现配置自动刷新:使用Apollo代替) 
 
 ### 事务 
 目前来看 微服务架构需要MQ来保证事务(或考虑下Fescar)(否则像以前Dubbo一样将 对数据库的操作原子化,写在一个服务中).
