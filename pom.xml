@@ -112,7 +112,7 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<!-- 版本不能使用1.2.28,不让会使替换fastjson 报错 -->
-			<version>1.2.24</version>
+			<version>1.2.25</version>
 		</dependency>
 		<!-- apache 工具包 -->
 		<!--<dependency>
