@@ -4,6 +4,10 @@ eureka:
     #网上免费的eureka服务器
       defaultZone: http://eureka.didispace.com/eureka/
 #      defaultZone: http://localhost:1001/eureka/
+#  应用启动时，可以根据eureka.instance.instance-enabled-onit配置设定(默认为false)，来配置初始注册到eureka server的时候，
+#  其status是UP，还是STARTING。默认初始化的时候是STARTING，之后自动注册的时候，变更为UP，表示可以开始接收请求。
+  instance:
+    instance-enabled-onit: true
 server:
   port: 9004
 spring:
